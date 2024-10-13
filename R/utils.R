@@ -62,7 +62,7 @@ retrieve_crit <- function(x) {
   if (nr > 5 && nr <= length(exuber::radf_crit)) {
     message_glue("Using `radf_crit` for `cv`.")
     return(exuber::radf_crit[[nr]])
-  } else if (nr > length(exuber::radf_crit) && nr <= 2000) {
+  } else if (nr > length(exuber::radf_crit) && nr <= 20000) {
     message_glue("Using `exuberdata::radf_crit2` for `cv`.")
     need_exuberdata()
     return(exuberdata::radf_crit2[[nr]])
