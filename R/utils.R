@@ -66,7 +66,10 @@ retrieve_crit <- function(x) {
     message_glue("Using `exuberdata::radf_crit2` for `cv`.")
     need_exuberdata()
     return(exuberdata::radf_crit2[[nr]])
-  }else {
+  } else if (nr > 2000 && nr <= 20000) {
+    message_glue("It will take more time to calculate critical values.")
+    return(radf_mc_cv(nr, minw = NULL, seed = 123))
+  } else {
     stop_glue("Cannot provide critical values see `help(radf_crit)`.")
   }
 }
